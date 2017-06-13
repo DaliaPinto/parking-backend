@@ -20,7 +20,7 @@ class Sensor extends Model
         return $this->belongsTo('App\Coordinate');
     }
 
-    public function figures ()
+    public function figures()
     {
         return $this->hasMany('App\ParkingFigure');
     }
