@@ -22,3 +22,10 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Coordinate::class, function (Faker\Generator $faker) {
+    return [
+        'latitude' => $faker->latitude($min = -90, $max = 90),
+        'length' => $faker->longitude($min = -180, $max = 180)
+    ];
+});
