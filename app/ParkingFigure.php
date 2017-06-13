@@ -10,5 +10,15 @@ class ParkingFigure extends Model
         'sensor_id', 'coordinate_id'
     ];
 
+    public function sensor()
+    {
+        return $this->belongsTo('App\Sensor');
+    }
+
+    public function coordinate()
+    {
+        return $this->belongsTo('App\Coordinate');
+    }
+
     public $timestamps = false;
 }

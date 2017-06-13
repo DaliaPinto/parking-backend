@@ -10,5 +10,15 @@ class Coordinate extends Model
         'latitude', 'length'
     ];
 
+    public function figures()
+    {
+        return $this->hasMany('App\ParkingFigure');
+    }
+
+    public function sensors()
+    {
+        return $this->hasMany('App\Sensor');
+    }
+
     public $timestamps = false;
 }
