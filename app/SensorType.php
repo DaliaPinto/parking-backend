@@ -11,4 +11,8 @@ class SensorType extends Model
     ];
 
     public $timestamps = false;
+
+    public function sensors(){
+        return $this->hasMany('App\Sensor');
+    }
 }

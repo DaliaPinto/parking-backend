@@ -17,7 +17,7 @@ class SensorTableSeeder extends Seeder
 
         factory(\App\Coordinate::class, 5)->create()->each(function ($coordinate) use ($type) {
             $sensor = new \App\Sensor();
-            $sensor->status = 'A';
+            $sensor->state = 2;
             $sensor->coordinate_id = $coordinate->id;
             $sensor->type_id = $type->id;
             $sensor->save();
