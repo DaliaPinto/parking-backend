@@ -16,7 +16,6 @@ class CreateSensorsTable extends Migration
         Schema::create('sensors', function (Blueprint $table) {
             $table->increments('id');
             $table->tinyInteger('state', 1);
-            $table->integer('coordinate_id');
             $table->tinyInteger('type_id');
         });
     }
