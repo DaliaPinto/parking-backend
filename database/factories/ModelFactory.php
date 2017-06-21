@@ -25,7 +25,14 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Coordinate::class, function (Faker\Generator $faker) {
     return [
-        'latitude' => $faker->latitude($min = -90, $max = 90),
-        'length' => $faker->longitude($min = -180, $max = 180)
+        'latitude' => $faker->latitude($min = 100, $max = 0),
+        'length' => $faker->longitude($min = 100, $max = 0)
+    ];
+});
+
+$factory->define(App\Sensor::class, function (Faker\Generator $faker) {
+    return [
+        'description' => $faker->sentence(3),
+        'state' => 1
     ];
 });

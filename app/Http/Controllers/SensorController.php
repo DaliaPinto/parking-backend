@@ -29,7 +29,7 @@ class SensorController extends Controller
                 ],
                 'properties' =>[
                 'id' => $s->id,
-                'state' => $s->status
+                'state' => $s->state
             ]]);
             $coordinates = collect();
         }
