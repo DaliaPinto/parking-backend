@@ -14,21 +14,28 @@ class SensorController extends Controller
     {
         $sensors = Sensor::where('type_id', 1)->with('figures.coordinate')->get();
 
-        $coordinates = array();
+        $properties = array();
         $features = array();
-        $data = array();
+        //$data = array();
 
         foreach($sensors as $s){
-            $data = array(
+            /*$data = array(
                 'geometry' => [
                     'type' => 'Polygon',
                 ]
-            );
-            array_push($features, $data);
+            );*/
+            //array_push($features, $data);
             foreach ($s->figures as $f){
                 $data['coordinates'] = array($f->coordinate->latitude, $f->coordinate->length);
                 array_push($features, $data);
             }
+            $properties = array(
+                'properties' => [
+                'id' => $s->id,
+                'state' => $s->status
+            ]);
+            //array_push($features, $properties);
+
         }
 
        return response()->json([
