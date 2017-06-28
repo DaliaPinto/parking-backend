@@ -25,8 +25,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Coordinate::class, function (Faker\Generator $faker) {
     return [
-        'latitude' => $faker->latitude($min = 100, $max = 0),
-        'length' => $faker->longitude($min = 100, $max = 0)
+        'latitude' => $faker->latitude($min = 84, $max = 85),
+        'length' => $faker->longitude($min = 0, $max = 1)
     ];
 });
 
