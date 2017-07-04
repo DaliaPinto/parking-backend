@@ -17,12 +17,24 @@ class SensorTableSeeder extends Seeder
         $type->description = 'parking';
         $type->save();
 
-        factory(\App\Sensor::class, 5)->create()->each(function ($sensor) use ($type){
-            $sensor->type_id = $type->id;
-            $sensor->save();
-        });
+        for($i=0; $i<5;$i++) {
+            $block = new \App\Block();
+            $block->description = 'Sector ' .($i+1). 'A';
+            $block->save();
+
+
+            factory(\App\Sensor::class, 1)->create()->each(function ($sensor) use ($type, $block) {
+                $sensor->type_id = $type->id;
+                $sensor->block_id = $block->id;
+                $sensor->save();
+            });
+        }
 
         \App\Sensor::all()->each(function ($s){
+
+            $act = new \App\SensorActivity();
+            $act->sensor_id =  $s->id;
+            $act->save();
 
         factory(\App\Coordinate::class, 5)->create()->each(function ($coordinate) use ($s) {
                 $pf = new \App\ParkingFigure();

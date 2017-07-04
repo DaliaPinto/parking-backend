@@ -32,7 +32,6 @@ $factory->define(App\Coordinate::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Sensor::class, function (Faker\Generator $faker) {
     return [
-        'description' => $faker->sentence(3),
         'state' => 1
     ];
 });

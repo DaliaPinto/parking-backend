@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sensor extends Model
 {
     protected $fillable = [
-        'state', 'coordinate_id', 'type_id'
+        'state', 'block_id','type_id'
     ];
 
     public function type()
@@ -15,9 +15,9 @@ class Sensor extends Model
         return $this->belongsTo('App\SensorType');
     }
 
-    public function coordinate()
+    public function block()
     {
-        return $this->belongsTo('App\Coordinate');
+        return $this->belongsTo('App\Block');
     }
 
     public function figures()
