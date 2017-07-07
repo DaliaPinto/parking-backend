@@ -32,9 +32,13 @@ class SensorTableSeeder extends Seeder
 
         \App\Sensor::all()->each(function ($s){
 
-            $act = new \App\SensorActivity();
-            $act->sensor_id =  $s->id;
-            $act->save();
+            for($i=0; $i<3; $i++) {
+
+                $act = new \App\SensorActivity();
+                $act->sensor_id = $s->id;
+                $act->state = rand(1, 2);
+                $act->save();
+            }
 
         factory(\App\Coordinate::class, 5)->create()->each(function ($coordinate) use ($s) {
                 $pf = new \App\ParkingFigure();

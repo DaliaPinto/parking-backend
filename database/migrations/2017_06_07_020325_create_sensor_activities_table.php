@@ -16,6 +16,7 @@ class CreateSensorActivitiesTable extends Migration
         Schema::create('sensor_activities', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('sensor_id');
+            $table->tinyInteger('state')->default(1);
             $table->timestamps();
         });
     }

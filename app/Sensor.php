@@ -22,7 +22,12 @@ class Sensor extends Model
 
     public function figures()
     {
-        return $this->hasMany('App\ParkingFigure');
+        return $this->hasMany('App\ParkingFigures');
+    }
+
+    public function activities(){
+        return $this->hasMany('App\SensorActivity');
+
     }
 
     public $timestamps = false;
